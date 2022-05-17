@@ -1,0 +1,1 @@
+keytool -exportcert -alias ADD_RELEASE_KEY_ALIASE_HERE -keystore G:/Iqbal/PaikariLimited/paikari com.paikarilimited.androidapp/androidapp/keystore | C:\openssl\bin\openssl.exe sha1 -binary | C:\openssl\bin\openssl.exe base64
