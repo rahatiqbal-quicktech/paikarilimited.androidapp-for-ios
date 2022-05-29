@@ -17,7 +17,7 @@ class CartProvider extends ChangeNotifier {
   int? cart_notification;
 
   Future<void> addtocart(CartModel cartModel) async {
-    log("cartprovider addtocart  :  ${cartModel.quantity}");
+    // log("cartprovider addtocart  :  ${cartModel.quantity}");
     await database.addtocart(cartModel);
     gettotalprice();
     getallcart();

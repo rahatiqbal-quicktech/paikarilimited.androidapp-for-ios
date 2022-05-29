@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:androidapp/screens/loginscreen.dart';
+import 'package:androidapp/screens/select_passwordreset_method_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -58,7 +60,7 @@ class DigitsPasswordResetService {
       required String pass}) async {
     var formData = FormData.fromMap({
       'user': mobileNo,
-      'countrycode': "+88",
+      'countrycode': "+880",
       'otp': otpCode,
       'ftoken': firebaseToken,
       'code': verificationCode,
@@ -72,6 +74,7 @@ class DigitsPasswordResetService {
           options: Options(
             headers: <String, String>{'authorization': basicAuth},
           ));
+
       if (dioResponse.statusCode == 200) {
         LoadingDialog().dismiss();
 
@@ -81,18 +84,22 @@ class DigitsPasswordResetService {
               backgroundColor: redcolor,
               fontSize: 15,
               textColor: Colors.white);
-        } else
+          Get.offAll(() => LoginScreen());
+        } else {
           Fluttertoast.showToast(
               msg: dioResponse.data['data']['msg'],
               backgroundColor: redcolor,
               fontSize: 15,
               textColor: Colors.white);
+          Get.offAll(() => LoginScreen());
+        }
       }
     } catch (e) {
       LoadingDialog().dismiss();
       print(e);
       Get.snackbar("Wrong Credentials",
           "Something went wrong. Please check and try again");
+      Get.off(() => SelectPasswordResetMethodScreen());
     }
   }
 }

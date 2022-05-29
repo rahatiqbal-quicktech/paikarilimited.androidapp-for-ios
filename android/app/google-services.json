@@ -43,42 +43,6 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:909659062514:android:d4b5c17f3366d6856a906b",
-        "android_client_info": {
-          "package_name": "com.example.paikarilimited_quicktech"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "909659062514-pvai9gftrrf4rt9ndm5sq09btd231ghc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD9rADy6TJULVXE6F5ZlZqlw9ibuS8PYiE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "909659062514-pvai9gftrrf4rt9ndm5sq09btd231ghc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "909659062514-75cpclb9bp0a9seom8uhihei4aopdut0.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.quicktech.paikarilimitedquicktech"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:909659062514:android:809bfac4bfca8bf06a906b",
         "android_client_info": {
           "package_name": "com.paikarilimited.androidapp"
@@ -86,55 +50,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "909659062514-pvai9gftrrf4rt9ndm5sq09btd231ghc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD9rADy6TJULVXE6F5ZlZqlw9ibuS8PYiE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "909659062514-pvai9gftrrf4rt9ndm5sq09btd231ghc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "909659062514-75cpclb9bp0a9seom8uhihei4aopdut0.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.quicktech.paikarilimitedquicktech"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:909659062514:android:df3e6e450b7982946a906b",
-        "android_client_info": {
-          "package_name": "com.quicktech.paikarilimitedquicktech"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "909659062514-5rjtpqlb69o29eal1fm4pkkt0b23324t.apps.googleusercontent.com",
+          "client_id": "909659062514-3m9vhr4elll7cqsr2pisps232h0qt3io.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.quicktech.paikarilimitedquicktech",
-            "certificate_hash": "1fe74e37a36d025836d49c0e18aea6f97a13b120"
+            "package_name": "com.paikarilimited.androidapp",
+            "certificate_hash": "6a418b381232ebc6bd99fd54b26956aa847e0d63"
           }
         },
         {
-          "client_id": "909659062514-k5gtoa1pv193ciuq7ulnld9o0u8il6h3.apps.googleusercontent.com",
+          "client_id": "909659062514-sb1hs8e42390l75ikk2nl3sib5i1eice.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.quicktech.paikarilimitedquicktech",
-            "certificate_hash": "6a418b381232ebc6bd99fd54b26956aa847e0d63"
+            "package_name": "com.paikarilimited.androidapp",
+            "certificate_hash": "76d34669a378384a07f93e234c855d7bcdab87e7"
           }
         },
         {

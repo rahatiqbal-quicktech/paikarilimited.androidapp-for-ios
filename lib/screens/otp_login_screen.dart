@@ -238,7 +238,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
         });
         LoadingDialog().dismiss();
       },
-      timeout: Duration(seconds: 30),
+      timeout: Duration(seconds: 60),
       forceResendingToken: _resendToken,
       codeAutoRetrievalTimeout: (String verificationId) {
         // ADDED LATER https://stackoverflow.com/questions/61132218/resend-otp-code-firebase-phone-authentication-in-flutter
