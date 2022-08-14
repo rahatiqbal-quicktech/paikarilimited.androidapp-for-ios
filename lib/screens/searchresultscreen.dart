@@ -8,7 +8,7 @@ import 'package:androidapp/Models/search_model.dart';
 import 'package:androidapp/screens/homescreenlisttile.dart';
 import 'package:androidapp/widgets/commonwidgets.dart';
 import 'package:androidapp/main.dart';
-import 'package:androidapp/screens/productdetailsscreen.dart';
+import 'package:androidapp/screens/product_details/productdetailsscreen.dart';
 import 'package:androidapp/widgets/anotherappbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';

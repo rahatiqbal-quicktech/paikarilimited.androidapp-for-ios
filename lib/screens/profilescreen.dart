@@ -161,13 +161,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   userSignOut() async {
     LoadingDialog().show(context);
     final sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.remove('userUid');
-    sharedPreferences.remove('userName');
-    sharedPreferences.remove('photoUrl');
-    sharedPreferences.remove('houseaddress');
-    sharedPreferences.remove('roadaddress');
-    sharedPreferences.remove('areaaddress');
-    print('userSignout function');
 
     final dio = Dio();
 
@@ -181,11 +174,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final response = await dio.post(url,
           options:
               Options(headers: {"Authorization": "Bearer ${accessToken}"}));
+      debugPrint(response.data.toString());
       if (response.statusCode == 200) {
         LoadingDialog().dismiss();
         if (response.data['success'] == true) {
+          sharedPreferences.remove('userUid');
+          sharedPreferences.remove('userName');
+          sharedPreferences.remove('photoUrl');
+          sharedPreferences.remove('houseaddress');
+          sharedPreferences.remove('roadaddress');
+          sharedPreferences.remove('areaaddress');
+          print('userSignout function');
           Get.offAll(LoginScreen());
-        } else if (response.data['success'] == true) {
+        } else if (response.data['success'] == false) {
           Get.snackbar("Unable to log you out",
               "Something went wrong. Please try again later.");
         }

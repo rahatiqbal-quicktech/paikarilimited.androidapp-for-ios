@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -8,7 +7,7 @@ import 'package:androidapp/Controllers/categoryproductscontroller.dart';
 import 'package:androidapp/Fixed%20Variables/fixedvariables.dart';
 import 'package:androidapp/Controllers/provider/cartprovider.dart';
 import 'package:androidapp/widgets/commonwidgets.dart';
-import 'package:androidapp/screens/productdetailsscreen.dart';
+import 'package:androidapp/screens/product_details/productdetailsscreen.dart';
 import 'package:androidapp/widgets/addproductdialogue.dart';
 import 'package:androidapp/widgets/anotherappbar.dart';
 import 'package:provider/provider.dart';
@@ -150,6 +149,23 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                                     : Container(),
                                 IconButton(
                                     onPressed: () {
+                                      int temp = 0;
+                                      String price = categoryproductscontroller
+                                          .categoryproductlist_[index].price!;
+                                      String salePrice =
+                                          categoryproductscontroller
+                                              .categoryproductlist_[index]
+                                              .salePrice!;
+
+                                      if (price == "") {
+                                        if (salePrice == "") {
+                                          temp = 0;
+                                        } else {
+                                          temp = int.parse(salePrice);
+                                        }
+                                      } else {
+                                        temp = int.parse(price);
+                                      }
                                       showDialog(
                                           context: context,
                                           builder: (BuildContext context) {
@@ -160,12 +176,13 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                                                   .toString(),
                                               image: imagecheckfunction(index)
                                                   .toString(),
-                                              price: int.parse(
-                                                  categoryproductscontroller
-                                                      .categoryproductlist_[
-                                                          index]
-                                                      .salePrice
-                                                      .toString()),
+                                              price: temp,
+                                              // int.parse(
+                                              //     categoryproductscontroller
+                                              //         .categoryproductlist_[
+                                              //             index]
+                                              //         .salePrice
+                                              //         .toString()),
                                               pid: categoryproductscontroller
                                                   .categoryproductlist_[index]
                                                   .id

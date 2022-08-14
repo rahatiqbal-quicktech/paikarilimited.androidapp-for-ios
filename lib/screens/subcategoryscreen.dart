@@ -16,7 +16,7 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
 
     return Scaffold(
       appBar: CommonAppBar(context),
-      drawer: Sidenav(size),
+      // drawer: Sidenav(size),
       body: Container(
         color: Colors.black.withOpacity(0.5),
         child: Column(

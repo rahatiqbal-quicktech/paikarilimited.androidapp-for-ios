@@ -40,7 +40,18 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              whitespace(context, 15, 0),
+              whitespace(context, 5, 0),
+              Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () {
+                    getPrefix.Get.back();
+                  },
+                  icon: Icon(Icons.arrow_back_ios),
+                ),
+              ),
+              whitespace(context, 5, 0),
               Text(
                 "Sign In with OTP",
                 style: GoogleFonts.openSans(fontSize: 20),

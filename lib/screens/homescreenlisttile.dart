@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:androidapp/Models/cart_model.dart';
 import 'package:androidapp/widgets/commonwidgets.dart';
-import 'package:androidapp/screens/productdetailsscreen.dart';
+import 'package:androidapp/screens/product_details/productdetailsscreen.dart';
 import 'package:androidapp/widgets/addproductdialogue.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +12,8 @@ import '../Controllers/provider/cartprovider.dart';
 
 class HomeScreenListTile extends StatefulWidget {
   String? productname;
-  String? price;
-  String? oldprice;
+  dynamic price;
+  dynamic oldprice;
   String? imageurl;
   int? id;
   int _itemcount = 0;
@@ -126,18 +126,30 @@ class _HomeScreenListTileState extends State<HomeScreenListTile> {
                               : Container(),
                           IconButton(
                               onPressed: () {
-                                print(widget.price.runtimeType);
+                                print(
+                                    "This is product prices ${widget.oldprice}and${widget.price}");
+                                int temp = 0;
+                                if (widget.price == "") {
+                                  if (widget.oldprice == "") {
+                                    temp = 0;
+                                  } else {
+                                    temp = int.parse(widget.oldprice);
+                                  }
+                                } else {
+                                  temp = int.parse(widget.price);
+                                }
                                 showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
                                       return AddProductDialogue(
                                           name: widget.productname.toString(),
                                           image: widget.imageurl.toString(),
-                                          price: widget.price != ""
-                                              ? int.parse(
-                                                  widget.price.toString())
-                                              : int.parse(
-                                                  widget.oldprice.toString()),
+                                          price: temp,
+                                          // widget.price != ""
+                                          //     ? int.parse(
+                                          //         widget.price.toString())
+                                          //     : int.parse(
+                                          //         widget.oldprice.toString()),
                                           pid: widget.id.toString());
                                     });
                               },

@@ -42,7 +42,17 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            whitespace(context, 10, 0),
+            whitespace(context, 5, 0),
+            Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back_ios),
+              ),
+            ),
+            whitespace(context, 2, 0),
 
             Image.asset(
               'assets/logos/paikari.jpg',

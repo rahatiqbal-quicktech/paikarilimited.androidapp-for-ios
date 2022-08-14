@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:androidapp/screens/product_details/add_to_cart_button.dart';
+import 'package:androidapp/screens/product_details/product_stock_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
@@ -11,7 +13,6 @@ import 'package:androidapp/main.dart';
 import 'package:provider/provider.dart';
 
 TextEditingController addproductcontroller = TextEditingController();
-// int abc = 10;
 
 class AddProductDialogue extends StatefulWidget {
   String name;
@@ -82,36 +83,58 @@ class _AddProductDialogueState extends State<AddProductDialogue> {
               )),
             ),
             // whitespace(context, 2, 0),
-            Align(
-              alignment: Alignment.centerRight,
-              child: ElevatedButton.icon(
-                icon: Icon(Ionicons.add),
-                onPressed: () {
-                  addtocart(int.parse(widget.pid), widget.name, widget.price,
-                      int.parse(addproductcontroller.text), widget.image);
-                  // addToCart_AnotherSql(
-                  //     sentid: widget.pid,
-                  //     sentproductname: widget.name,
-                  //     sentproductprice: widget.price.toDouble(),
-                  //     quantity: int.parse(addproductcontroller.text));
-                  Navigator.pop(context);
-                  addproductcontroller.clear();
-                },
-                label: Text(
-                  "Add Product",
-                  style: GoogleFonts.openSans(
-                    textStyle: const TextStyle(
-                        // color: Colors.black,
+            FutureBuilder<ProductStockModel?>(
+                future: ProductStockService().fetchProductStock(widget.pid),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data?.stockStatus != 'outofstock') {
+                      return Align(
+                        alignment: Alignment.centerRight,
+                        child: ElevatedButton.icon(
+                          icon: Icon(Ionicons.add),
+                          onPressed: () {
+                            addtocart(
+                                int.parse(widget.pid),
+                                widget.name,
+                                widget.price,
+                                int.parse(addproductcontroller.text),
+                                widget.image);
+                            // addToCart_AnotherSql(
+                            //     sentid: widget.pid,
+                            //     sentproductname: widget.name,
+                            //     sentproductprice: widget.price.toDouble(),
+                            //     quantity: int.parse(addproductcontroller.text));
+                            Navigator.pop(context);
+                            addproductcontroller.clear();
+                          },
+                          label: Text(
+                            "Add Product",
+                            style: GoogleFonts.openSans(
+                              textStyle: const TextStyle(
+                                  // color: Colors.black,
+                                  ),
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              primary: redcolor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              )),
                         ),
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                    primary: redcolor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    )),
-              ),
-            ),
+                      );
+                    } else {
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "Out of stock",
+                          style: TextStyle(color: redcolor),
+                        ),
+                      );
+                    }
+                  } else {
+                    return LinearProgressIndicator();
+                  }
+                }),
           ],
         ),
       ),

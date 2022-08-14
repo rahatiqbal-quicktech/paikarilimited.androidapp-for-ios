@@ -22,6 +22,8 @@ import 'package:androidapp/widgets/navbar_widget/navbarWidget.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/src/widgets/image.dart' as imageimport;
 
+import 'add_to_cart_button.dart';
+
 class ProductDetailsScreen extends StatefulWidget {
   //
   // AllProductsModel? tempmodel;
@@ -106,7 +108,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
-                                  width: size.width * 70,
+                                  width: size.width * 65,
                                   child: Text(widget.name,
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
@@ -128,15 +130,24 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                     decoration: TextDecoration.lineThrough,
                                   ),
                                 ),
-                                Text(
-                                  "Price  " + widget.saleprice,
-                                  // snapshot.data!.price.toString(),
-                                  style: GoogleFonts.openSans(
-                                    color: redcolor,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15.5,
-                                  ),
-                                ),
+                                widget.saleprice != ""
+                                    ? Text(
+                                        "Price  " + widget.saleprice,
+                                        // snapshot.data!.price.toString(),
+                                        style: GoogleFonts.openSans(
+                                          color: redcolor,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 15.5,
+                                        ),
+                                      )
+                                    : Text(
+                                        "Price Unvailabe",
+                                        // snapshot.data!.price.toString(),
+                                        style: GoogleFonts.openSans(
+                                          color: Colors.white70,
+                                          fontSize: 15.5,
+                                        ),
+                                      ),
                               ],
                             ),
                           ),
@@ -144,28 +155,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           // ignore: prefer_const_constructors
                           Padding(
                             padding: const EdgeInsets.only(right: 20),
-                            child: GestureDetector(
-                              onTap: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AddProductDialogue(
-                                          name: widget.name,
-                                          image: widget.url,
-                                          price: int.parse(widget.saleprice),
-                                          pid: widget.id);
-                                    });
-
-                                // showsnackbar();
-                                // addtocart(int.parse(widget.id), widget.name,
-                                //     int.parse(widget.saleprice), 1);
-                              },
-                              child: const Icon(
-                                Ionicons.add_circle_outline,
-                                color: Colors.white,
-                                size: 35,
-                              ),
-                            ),
+                            child: AddToCartButton(
+                                name: widget.name,
+                                price: widget.saleprice,
+                                imageUrl: widget.url,
+                                pid: widget.id),
                           )
                         ],
                       ),

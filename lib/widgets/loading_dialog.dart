@@ -26,7 +26,7 @@ class LoadingDialog {
               backgroundColor: Colors.grey.withOpacity(.7),
               insetPadding: EdgeInsets.symmetric(horizontal: 100),
               content: Container(
-                child: Column(
+                child: Column(  
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
