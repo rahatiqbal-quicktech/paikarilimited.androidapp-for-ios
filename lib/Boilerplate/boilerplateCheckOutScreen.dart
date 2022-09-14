@@ -7,8 +7,8 @@ import 'package:androidapp/widgets/commonwidgets.dart';
 import 'package:androidapp/screens/homescreen.dart';
 
 class BoilerplateChekOutScreen extends StatefulWidget {
-  int? orderid;
-  String? paymentMethod;
+  final int? orderid;
+  final String? paymentMethod;
   BoilerplateChekOutScreen({Key? key, this.orderid, this.paymentMethod})
       : super(key: key);
 

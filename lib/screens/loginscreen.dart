@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:androidapp/screens/apple_signup/apple_signup_email_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_buttons/flutter_awesome_buttons.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -16,6 +19,7 @@ import 'package:androidapp/screens/homescreen.dart';
 import 'package:androidapp/screens/otp_login_screen.dart';
 import 'package:androidapp/screens/signupscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart' as appleSignUp;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -136,6 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             whitespace(context, 2, 0),
+            SizedBox(
+                width: double.infinity,
+                child: SignInButton(
+                  Buttons.Apple,
+                  onPressed: () async {
+                    Get.to(() => AppleSignUpEmailScreen());
+                  },
+                )),
             SizedBox(width: double.infinity, child: buildloginbutton()),
             // SizedBox(
             //     width: double.infinity,

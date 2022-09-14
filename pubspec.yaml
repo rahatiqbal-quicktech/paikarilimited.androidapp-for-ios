@@ -3,7 +3,6 @@ description: A new Flutter project.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-
 version: 1.0.0+17
 
 environment:
@@ -40,13 +39,14 @@ dependencies:
   flutter_phone_direct_caller:
   intl: ^0.17.0
   # flutter_login_facebook: ^1.4.1
-  timer_button: ^2.0.0
+  timer_button:
   firebase_messaging: ^11.2.13
   flutter_local_notifications: ^9.4.0
   flutter_sslcommerz: ^2.1.1-nullsafety.0
   fluttertoast: ^8.0.9
   image_picker: ^0.8.5
   url_launcher: ^6.1.0
+  sign_in_with_apple: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,4 +67,3 @@ flutter:
   assets:
     - assets/logos/
     - assets/categoryicons/
-

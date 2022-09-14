@@ -1,3 +1,8 @@
+import 'dart:developer';
+
+import 'package:androidapp/Service/delete_account_service.dart';
+import 'package:androidapp/Service/get_spf_values.dart';
+import 'package:androidapp/screens/delete_account_confirmation_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -121,6 +126,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Get.to(OrderHistoryScreen(
                 id: userid.toString(),
               ));
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Ionicons.trash,
+              color: redcolor,
+            ),
+            title: Text(
+              "Delete My Account",
+              style: GoogleFonts.openSans(),
+            ),
+            trailing: Icon(
+              Ionicons.chevron_forward,
+              color: Colors.black,
+            ),
+            onTap: () async {
+              // DeleteAccountService().deleteMyAccount();
+              // log(GetSpfValues().getUserId().toString());
+              Get.to(() => DeleteAccountConfirmationScreen());
             },
           ),
           Spacer(),
